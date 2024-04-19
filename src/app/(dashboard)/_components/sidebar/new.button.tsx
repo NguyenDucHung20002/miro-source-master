@@ -16,9 +16,9 @@ const NewButton = () => {
               align="center"
               sideOffset={18}
             >
-              <button className="bg-white/25 h-full w-full items-center justify-center flex opacity-60 hover:opacity-100 transition-all rounded-md">
+              <div className="bg-white/25 h-[36px] w-[36px] items-center justify-center flex opacity-60 hover:opacity-100 transition rounded-md">
                 <Plus className="text-white"></Plus>
-              </button>
+              </div>
             </Hint>
           </div>
         </DialogTrigger>
