@@ -11,7 +11,7 @@ export const useApiMutation = (mutationFunction: any) => {
     .finally(() => setPending(false))
     .then((result) => result)
     .catch((error) => {
-       throw error
+      throw error
     })
   }
 

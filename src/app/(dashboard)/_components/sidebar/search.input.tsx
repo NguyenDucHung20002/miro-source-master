@@ -29,6 +29,8 @@ const SearchInput = () => {
       }
     );
     router.push(url);
+
+    if (!debouncedValue[0]) qs.exclude("/", ["search"]);
   }, [debouncedValue, router]);
 
   return (

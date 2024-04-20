@@ -1,15 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useMutation } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import { useOrganization } from "@clerk/nextjs";
 import { useApiMutation } from "@/hooks/use.api.mutation";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const EmptyBoard = () => {
   const { organization } = useOrganization();
   const { mutate, pending } = useApiMutation(api.board.create);
+  const router = useRouter();
 
   const onClick = () => {
     if (!organization) return;
@@ -17,8 +18,9 @@ const EmptyBoard = () => {
       orgId: organization.id,
       title: "Untitled",
     })
-      .then(() => {
+      .then((id) => {
         toast.success("Board created");
+        router.push(`/board/${id}`);
       })
       .catch(() => toast.error("Failed to create board"));
   };
