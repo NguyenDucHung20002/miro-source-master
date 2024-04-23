@@ -13,7 +13,6 @@ import { Link2, Pencil, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { api } from "../../convex/_generated/api";
 import ConfirmModal from "@/components/confirm.modal";
-import { Button } from "./ui/button";
 import { useRenameModal } from "@/store/use.rename.modal";
 
 interface IActionsPops {
@@ -35,7 +34,7 @@ const Actions = ({ children, side, sideOffset, id, title }: IActionsPops) => {
       .catch(() => toast.error("Failed to copy link"));
   };
 
-  const onDelete = () => {
+  const onDelete = async () => {
     mutate({ id })
       .then(() => toast.success("Board deleted"))
       .catch(() => toast.error("Failed to delete"));
@@ -49,7 +48,7 @@ const Actions = ({ children, side, sideOffset, id, title }: IActionsPops) => {
           onClick={(e) => e.preventDefault()}
           side={side}
           sideOffset={sideOffset}
-          className="w-60 z-50 bg-gray-100 rounded-md"
+          className="w-60 z-50 bg-gray-200 rounded-md"
         >
           <DropdownMenuItem
             onClick={onCopyLink}
@@ -75,15 +74,12 @@ const Actions = ({ children, side, sideOffset, id, title }: IActionsPops) => {
             disabled={pending}
             onConfirm={onDelete}
           >
-            <Button
-              variant="ghost"
-              className="p-1 w-full cursor-pointer border-none outline-none"
-            >
+            <button className="p-1 w-full cursor-pointer border-none outline-none">
               <div className="hover:bg-gray-300 w-full transition-all flex p-2 rounded-md justify-start items-center ">
                 <Trash2 className="w-4 h-4 mr-2 text-black"></Trash2>{" "}
                 <p className="text-sm">Delete board</p>
               </div>
-            </Button>
+            </button>
           </ConfirmModal>
         </DropdownMenuContent>
       </DropdownMenu>

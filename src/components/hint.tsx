@@ -24,22 +24,20 @@ const Hint = ({
 }: IHintProps) => {
   return (
     <>
-      <div className="w-full">
-        <TooltipProvider>
-          <Tooltip delayDuration={100}>
-            <TooltipTrigger>{children}</TooltipTrigger>
-            <TooltipContent
-              className="text-white bg-gray-500 order-black px-2 py-1 rounded-sm"
-              side={side}
-              align={align}
-              sideOffset={sideOffset}
-              alignOffset={alignOffset}
-            >
-              <p className="font-semibold capitalize">{label}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
+      <TooltipProvider>
+        <Tooltip delayDuration={100}>
+          <TooltipTrigger>{children}</TooltipTrigger>
+          <TooltipContent
+            className="text-white bg-gray-500 order-black px-2 py-1 rounded-sm"
+            side={side}
+            align={align}
+            sideOffset={sideOffset}
+            alignOffset={alignOffset}
+          >
+            <p className="font-semibold capitalize">{label}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </>
   );
 };
