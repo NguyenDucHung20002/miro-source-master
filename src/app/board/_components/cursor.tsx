@@ -13,7 +13,6 @@ interface ICursorProps {
 const Cursor = memo(({ connectionId }: ICursorProps) => {
   const info = useOther(connectionId, (user) => user?.info);
   const cursor = useOther(connectionId, (user) => user?.presence.cursor);
-  console.log("cursor:", cursor);
 
   const name = info?.name || "Teammate";
 
