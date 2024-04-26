@@ -32,6 +32,12 @@ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Preview
+
+
+![image](https://github.com/NguyenDucHung20002/miro-source-master/assets/102849103/0d4d5324-0f75-4433-98e3-b6853178c13e)
+
+
 
 
 
